@@ -1,0 +1,22 @@
+---
+# vars file for ansible-chrony
+
+chrony_packages:
+  - chrony
+
+chrony_services:
+  - chrony
+
+chrony_bind_addresses:
+  - ::1
+  - 127.0.0.1
+
+#chrony_service_name: chronyd
+chrony_service_name: chrony
+chrony_conf_file: /etc/chrony.conf
+chrony_keyfile_path: /etc/chrony/chrony.keys
+chrony_driftfile_path: /var/lib/chrony/chrony.drift
+chrony_rtc: rtconutc
+chrony_server_settings: minpoll 8
+chrony_max_step: makestep 10 3
+#chrony_server_settings: iburst

@@ -1,0 +1,13 @@
+---
+# defaults file for ansible-chrony
+
+chrony_ntp_servers:
+  - 0.sg.pool.ntp.org
+  - 0.asia.pool.ntp.org
+  - 1.asia.pool.ntp.org
+  - 2.asia.pool.ntp.org
+
+chrony_pre_packages: []
+chrony_packages: []
+chrony_package_state: present
+chrony_services: []

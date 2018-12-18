@@ -1,0 +1,23 @@
+---
+# tasks file for ansible-chrony
+
+- block:
+    - name: ensure chrony is installed
+      package:
+        name: 'chrony'
+        state: 'present'
+
+    - name: ensure chrony configuration is copied
+      template:
+        src: 'chrony.conf.j2'
+        dest: "{{ chrony_conf_file }}"
+      notify: 'restart chrony'
+
+    - name: ensure chrony is running after reboot
+      service:
+        name: '{{ chrony_service_name }}'
+        enabled: yes
+        state: started
+  become: yes
+  tags:
+    - chrony
